@@ -14,8 +14,21 @@ class Get extends CI_Controller {
     }
 	public function index()
 	{
-		echo $_GET['code'];
+		header("Content-type: text/html; charset=utf-8");
+		if(isset($_GET['code']))
+		{
+			$code=$_GET['code'];
+			$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx86ae866c6733ee72&secret=e0c1e0c57061910c57eea05bd672a3c1&code={$code}&grant_type=authorization_code";
+			$json=file_get_contents($url);
+			$json_array=(array)json_decode($json,TRUE);
 
-		echo 'hello';
-	}
+			$access_token=$json_array['access_token'];
+			$openid=$json_array['openid'];
+
+			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
+			//echo $userinfo_url;
+			$userinfo=file_get_contents($userinfo_url);
+			$userinfo=(array)json_decode($userinfo,TRUE);
+
+		}
 }
