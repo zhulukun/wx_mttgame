@@ -33,7 +33,7 @@ class Get extends CI_Controller {
 
 		}
 		$data['userinfo']=$userinfo;
-		print_r($userinfo);
+		//print_r($userinfo);
 		$this->load->view('bike',$data);
 	}
 }
