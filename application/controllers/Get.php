@@ -28,11 +28,11 @@ class Get extends CI_Controller {
 			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 			//echo $userinfo_url;
 			$userinfo=file_get_contents($userinfo_url);
-			$userinfo['userinfo']=(array)json_decode($userinfo,TRUE);
-
+			$userinfo=(array)json_decode($userinfo,TRUE);
+			$data['userinfo']=$userinfo;
 
 		}
-		$this->load->view('bike',$userinfo);
+		$this->load->view('bike',$data);
 	}
 }
 ?>
