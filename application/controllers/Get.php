@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Get extends CI_Controller {
 
 	function __construct()
     {
@@ -14,7 +14,8 @@ class Welcome extends CI_Controller {
     }
 	public function index()
 	{
-		$url=
-		$code=file_get_contents($url);
+		echo $_GET['code'];
+
+		echo 'hello';
 	}
 }
