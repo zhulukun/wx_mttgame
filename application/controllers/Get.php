@@ -29,6 +29,7 @@ class Get extends CI_Controller {
 			//echo $userinfo_url;
 			$userinfo=file_get_contents($userinfo_url);
 			$userinfo=(array)json_decode($userinfo,TRUE);
+			print_r($userinfo);
 
 		}
 	}
