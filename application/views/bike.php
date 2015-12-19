@@ -4,7 +4,7 @@
 	<title></title>
 </head>
 <body
-		<?php //echo $userinfo['nickname'];?>
+		<?php echo $userinfo['nickname'];?>
         <?php foreach ($userinfo as $item): ?>  
         	<?php print_r($item);?>
        		 <?php //echo $item['nickname'];?>
