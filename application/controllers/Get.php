@@ -15,6 +15,7 @@ class Get extends CI_Controller {
 	public function index()
 	{
 		header("Content-type: text/html; charset=utf-8");
+		$userinfo=array();
 		if(isset($_GET['code']))
 		{
 			$code=$_GET['code'];
@@ -27,11 +28,12 @@ class Get extends CI_Controller {
 
 			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 			//echo $userinfo_url;
-			$userinfo=file_get_contents($userinfo_url);
-			$userinfo=(array)json_decode($userinfo,TRUE);
-			$data['userinfo']=$userinfo;
+			$userinfo_json=file_get_contents($userinfo_url);
+			$userinfo=(array)json_decode($userinfo_json,TRUE);
 
 		}
+		$data['userinfo']=$userinfo;
+		print_r($data);
 		$this->load->view('bike',$data);
 	}
 }
