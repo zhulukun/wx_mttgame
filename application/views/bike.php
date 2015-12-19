@@ -4,9 +4,9 @@
 	<title></title>
 </head>
 <body
-		<?php print_r($data);?>
-       <?php foreach ($userinfo as $item): ?>  
-       		<?php echo $item['nickname'];?>
+		<?php echo $userinfo['nickname'];?>
+        <?php foreach ($userinfo as $item): ?>  
+       		 <?php //echo $item['nickname'];?>
            <?php endforeach; ?>  
 
 <p></p>
