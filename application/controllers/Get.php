@@ -31,4 +31,6 @@ class Get extends CI_Controller {
 			$userinfo=(array)json_decode($userinfo,TRUE);
 
 		}
+	}
 }
+?>
