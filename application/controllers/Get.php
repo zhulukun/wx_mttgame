@@ -18,6 +18,8 @@ class Get extends CI_Controller {
 		$userinfo=array();
 
 		$this->session->set_userdata('code','');
+		echo($_SESSION['code']).'<br/>';
+		echo($_GET['code']);
 		if(isset($_GET['code'])!=$_SESSION['code'])
 		{
 			$this->session->set_userdata('code',$_GET['code']);
