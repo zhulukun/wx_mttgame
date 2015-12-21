@@ -36,11 +36,12 @@ class Get extends CI_Controller {
 		}
 		else
 		{
-			echo($_SESSION['nickname']);
-			echo($_SESSION['headimgurl']);
+			$userinfo=array(
+					'nickname' => $_SESSION['nickname'],
+					'headimgurl' => $_SESSION['headimgurl']
+				);
 		}
-		echo($_SESSION['nickname']);
-			echo($_SESSION['headimgurl']);
+
 		$data['userinfo']=$userinfo;
 
 
