@@ -18,6 +18,8 @@ class Get extends CI_Controller {
 		$userinfo=array();
 		$code='';
 		$code1='';
+		echo($_GET['code']);
+		echo($code1);
 		if(isset($_GET['code'])!=$code1)
 		{
 			$code=$_GET['code'].'a';
