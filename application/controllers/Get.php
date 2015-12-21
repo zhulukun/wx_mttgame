@@ -16,15 +16,12 @@ class Get extends CI_Controller {
 	{
 		header("Content-type: text/html; charset=utf-8");
 		$userinfo=array();
-		$code='';
-		$code1='';
-		echo($_GET['code']);
-		echo($code1);
-		if(isset($_GET['code'])!=$code1)
+
+		$this->session->set_userdata('code','');
+		if(isset($_GET['code'])!=$_SESSION['code'])
 		{
-			$code=$_GET['code'].'a';
-			$code1=substr($code, 0,strlen($code)-1);
-			$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx86ae866c6733ee72&secret=e0c1e0c57061910c57eea05bd672a3c1&code={$code1}&grant_type=authorization_code";
+			$this->session->set_userdata('nickname',$code);
+			$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx86ae866c6733ee72&secret=e0c1e0c57061910c57eea05bd672a3c1&code={$code}&grant_type=authorization_code";
 			$json=file_get_contents($url);
 
 			$json_array=(array)json_decode($json,TRUE);
