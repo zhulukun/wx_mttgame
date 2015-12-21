@@ -17,7 +17,8 @@ class Get extends CI_Controller {
 		header("Content-type: text/html; charset=utf-8");
 		$userinfo=array();
 		$code='';
-		if(isset($_GET['code'])!=$code)
+		$code1='';
+		if(isset($_GET['code'])!=$code1)
 		{
 			$code=$_GET['code'].'a';
 			$code1=substr($code, 0,strlen($code)-1);
