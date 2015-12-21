@@ -25,15 +25,14 @@ class Get extends CI_Controller {
 		{
 			$code='';
 		}
-		if(isset($_GET['code'])!=$code)
+		if($_GET['code']!=$code)
 		{
 			$this->session->set_userdata('code',$_GET['code']);
-			$code=$_GET['code'];
-			$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx86ae866c6733ee72&secret=e0c1e0c57061910c57eea05bd672a3c1&code={$code}&grant_type=authorization_code";
+			$code1=$_GET['code'];
+			$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx86ae866c6733ee72&secret=e0c1e0c57061910c57eea05bd672a3c1&code={$code1}&grant_type=authorization_code";
 			$json=file_get_contents($url);
 
 			$json_array=(array)json_decode($json,TRUE);
-			print_r($json_array);
 			$access_token=$json_array['access_token'];
 			$openid=$json_array['openid'];
 
