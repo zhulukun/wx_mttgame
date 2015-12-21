@@ -30,9 +30,19 @@ class Get extends CI_Controller {
 			//echo $userinfo_url;
 			$userinfo_json=file_get_contents($userinfo_url);
 			$userinfo=(array)json_decode($userinfo_json,TRUE);
+			$this->session->set_userdata('nickname',$userinfo['nickname']);
+			$this->session->set_userdata('headimgurl',$userinfo['headimgurl']);
 
 		}
+		else
+		{
+			echo($_SESSION['nickname']);
+			echo($_SESSION['headimgurl']);
+		}
+
 		$data['userinfo']=$userinfo;
+
+
 		//print_r($userinfo);
 		$this->load->view('bike',$data);
 	}
