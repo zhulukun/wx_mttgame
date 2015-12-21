@@ -16,7 +16,8 @@ class Get extends CI_Controller {
 	{
 		header("Content-type: text/html; charset=utf-8");
 		$userinfo=array();
-		if(isset($_GET['code']))
+		$code='';
+		if(isset($_GET['code'])!=$code)
 		{
 			$code=$_GET['code'];
 			$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx86ae866c6733ee72&secret=e0c1e0c57061910c57eea05bd672a3c1&code={$code}&grant_type=authorization_code";
