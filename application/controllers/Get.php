@@ -44,7 +44,7 @@ class Get extends CI_Controller {
 
 			if (!$this->User_model->is_user_exist($openid)) {
 				# code...
-				$this->User_model->nsert_user($openid,$userinfo['nickname'],$userinfo['headimgurl']);
+				$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl']);
 			}
 
 
