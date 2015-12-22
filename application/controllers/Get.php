@@ -10,7 +10,7 @@ class Get extends CI_Controller {
 
         $this->load->helper('url');
         $this->load->library('session');
-        $this->looad->model('User_model');
+        $this->load->model('User_model');
                
     }
 	public function index()
