@@ -10,6 +10,7 @@ class Get extends CI_Controller {
 
         $this->load->helper('url');
         $this->load->library('session');
+        $this->looad->model('User_model');
                
     }
 	public function index()
@@ -40,6 +41,13 @@ class Get extends CI_Controller {
 			//echo $userinfo_url;
 			$userinfo_json=file_get_contents($userinfo_url);
 			$userinfo=(array)json_decode($userinfo_json,TRUE);
+
+			if (!$this->User_model->is_user_exist($openid)) {
+				# code...
+				$this->User_model->nsert_user($openid,$userinfo['nickname'],$userinfo['headimgurl']);
+			}
+
+
 			$this->session->set_userdata('nickname',$userinfo['nickname']);
 			$this->session->set_userdata('headimgurl',$userinfo['headimgurl']);
 
