@@ -22,7 +22,7 @@
             }
             if (count($arr)>0) {
                 # code...
-                $rand=$arr[0]['openid'];
+                $rand=$arr[0]['rand'];
                 $query_story=$this->db->query("SELECT * FROM mtt_story WHERE id={$rand}");
 
                 $story_arr=array();
@@ -35,7 +35,7 @@
                 return $story_arr;
 
             }
-            
+
             return;
 
         }
