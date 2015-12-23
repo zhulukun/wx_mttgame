@@ -11,6 +11,7 @@ class Get extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('User_model');
+        $this->load->model('Story_model');
                
     }
 	public function index()
@@ -36,7 +37,7 @@ class Get extends CI_Controller {
 			$json_array=(array)json_decode($json,TRUE);
 			$access_token=$json_array['access_token'];
 			$openid=$json_array['openid'];
-
+			$this->session->set_userdata('openid',$userinfo['openid']);
 			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 			//echo $userinfo_url;
 			$userinfo_json=file_get_contents($userinfo_url);
@@ -65,9 +66,22 @@ class Get extends CI_Controller {
 		}
 
 		$data['userinfo']=$userinfo;
+		$data['story']=$this->get_story();
 
+		print_r($data);
+		
+		die();
 		//print_r($userinfo);
+
 		$this->load->view('bike',$data);
+	}
+
+
+	function get_story()
+	{
+		$story=$this->Story_model->get_story($_SESSION['openid']);
+		return $story;
+
 	}
 }
 ?>
