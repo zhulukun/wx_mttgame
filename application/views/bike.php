@@ -89,7 +89,7 @@
 	</style>
 </head>
 <body>
-	<div id="content"
+	<div id="content">
 		<div id="imgbk">
 			<img src="<?php base_url();?>img/bk.png">
 		</div>
