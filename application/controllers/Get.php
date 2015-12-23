@@ -68,9 +68,7 @@ class Get extends CI_Controller {
 		$data['userinfo']=$userinfo;
 		$data['story']=$this->get_story();
 
-		print_r($data);
-
-		die();
+	
 		//print_r($userinfo);
 
 		$this->load->view('bike',$data);
