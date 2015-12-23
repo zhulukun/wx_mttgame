@@ -45,8 +45,10 @@ class Get extends CI_Controller {
 			if (!$this->User_model->is_user_exist($openid)) {
 				# code...
 				$rand=rand(1,10);
+				echo($rand);
+				die();
 				$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl'],$rand);
-				
+
 			}
 
 
