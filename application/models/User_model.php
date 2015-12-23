@@ -7,13 +7,13 @@
 
             parent::__construct();
             $this->load->database(); 
-        
+                    
         }
 
         //插入用户
-        function insert_user($openid,$name,$avatar_url)
+        function insert_user($openid,$name,$avatar_url,$rand)
         {
-        	$query=$this->db->query("INSERT INTO mtt_user(openid,name,avatar_url) VALUES('{$openid}','{$name}','{$avatar_url}')");
+        	$query=$this->db->query("INSERT INTO mtt_user(openid,name,avatar_url,rand) VALUES('{$openid}','{$name}','{$avatar_url}',{$rand})");
         	if ($this->db->affected_rows()>0) {
         		# code...
         		return TRUE;

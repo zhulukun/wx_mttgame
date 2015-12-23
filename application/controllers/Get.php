@@ -44,7 +44,9 @@ class Get extends CI_Controller {
 
 			if (!$this->User_model->is_user_exist($openid)) {
 				# code...
-				$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl']);
+				$rand=rand(1,10);
+				$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl'],$rand);
+				
 			}
 
 
@@ -61,7 +63,6 @@ class Get extends CI_Controller {
 		}
 
 		$data['userinfo']=$userinfo;
-
 
 		//print_r($userinfo);
 		$this->load->view('bike',$data);
