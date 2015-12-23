@@ -85,10 +85,6 @@
   left: 63%;
   padding-top: 35px;
 }
-#username-header img
-{
-	width:30%;
-}
 
 	</style>
 </head>
@@ -101,10 +97,10 @@
 			<h1 id="username"><?php echo $userinfo['nickname'];?></h1>
 		</div>
 		<div id="header-container">
-			
+			<img src="<?php echo $userinfo['headimgurl'];?>"/>
 		</div>
 		<div id="content-container">
-			<h1 id="username-header"><img src="<?php echo $userinfo['headimgurl'];?>"/></h1>
+			<h1 id="username-header"></h1>
 			<div id="content-p"><?php echo $userinfo['content'];?></div>
 		</div>
 		<div id="btn-container">
