@@ -5,10 +5,91 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>骑行故事</title>
-	<link rel="stylesheet" href="<?php echo base_url();?>css/index.css">
+	<style type="text/css">
+			body {
+  padding: 0;
+  margin: 0;
+}
+#content {
+  position: relative;
+  color: #fff;
+}
+#imgbk img {
+  width: 100%;
+}
+#title-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+}
+#header-container {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 20%;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+}
+#header-container img {
+  width: 50%;
+}
+#content-container {
+  position: absolute;
+  left: 10%;
+  top: 45%;
+  width: 80%;
+  height: 25%;
+  text-align: center;
+  color: #000;
+}
+#content-container h1 {
+  font-size: 18px;
+}
+#content-container p {
+  font-size: 12px;
+  line-height: 12px;
+}
+#btn-container {
+  position: absolute;
+  left: 0;
+  bottom: 13%;
+  width: 100%;
+  height: 15%;
+}
+#btn-container a {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 80px;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  text-decoration: none;
+}
+#btn-container a:hover {
+  color: #dedede;
+}
+#btn1 {
+  left: 5%;
+  padding-top: 35px;
+}
+#btn2 {
+  left: 33%;
+  padding-top: 25px;
+}
+#btn3 {
+  left: 63%;
+  padding-top: 35px;
+}
+
+	</style>
 </head>
 <body>
-	<div id="content">
+	<div id="content"
 		<div id="imgbk">
 			<img src="<?php base_url();?>img/bk.png">
 		</div>
