@@ -5,12 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>骑行故事</title>
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/index.css">
 </head>
 <body>
 	<div id="content">
 		<div id="imgbk">
-			<img src="img/bk.png">
+			<img src="<?php base_url();?>img/bk.png">
 		</div>
 		<div id="title-container">
 			<h1 id="username"><?php echo $userinfo['nickname'];?></h1>
