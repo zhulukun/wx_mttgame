@@ -37,7 +37,7 @@ class Get extends CI_Controller {
 			$json_array=(array)json_decode($json,TRUE);
 			$access_token=$json_array['access_token'];
 			$openid=$json_array['openid'];
-			$this->session->set_userdata('openid',$userinfo['openid']);
+			$this->session->set_userdata('openid',$openid);
 			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 			//echo $userinfo_url;
 			$userinfo_json=file_get_contents($userinfo_url);
@@ -69,7 +69,7 @@ class Get extends CI_Controller {
 		$data['story']=$this->get_story();
 
 		print_r($data);
-		
+
 		die();
 		//print_r($userinfo);
 
