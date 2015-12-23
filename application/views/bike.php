@@ -85,7 +85,7 @@
   left: 63%;
   padding-top: 35px;
 }
-#username-header
+#username-header img
 {
 	width:30%;
 }
