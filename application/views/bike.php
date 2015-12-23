@@ -101,7 +101,7 @@
 		</div>
 		<div id="content-container">
 			<h1 id="username-header"></h1>
-			<div id="content-p"><?php echo $userinfo['content'];?></div>
+			<div id="content-p"><?php echo str_replace('XXX' ,$userinfo['nickname'] ,$userinfo['content']);?></div>
 		</div>
 		<div id="btn-container">
 			<a id="btn1" href="javascript:return false;">让大家看看</a>
