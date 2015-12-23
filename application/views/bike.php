@@ -15,7 +15,7 @@
   color: #fff;
 }
 #imgbk img {
-  width: 50%;
+  width: 10%;
 }
 #title-container {
   position: absolute;
