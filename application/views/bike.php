@@ -15,7 +15,7 @@
   color: #fff;
 }
 #imgbk img {
-  width: 10%;
+  width: 100%;
 }
 #title-container {
   position: absolute;
@@ -84,6 +84,10 @@
 #btn3 {
   left: 63%;
   padding-top: 35px;
+}
+#username-header
+{
+	width:30%;
 }
 
 	</style>
