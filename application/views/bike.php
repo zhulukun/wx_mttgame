@@ -106,7 +106,7 @@
 		<div id="btn-container">
 			<a id="btn1" href="javascript:return false;">让大家看看</a>
 			<a id="btn2" href="http://www.hao2b.cn/44006">马蹄骑行<br>智能骑行APP</a>
-			<a id="btn3" href="">我也要玩</a>
+			<a id="btn3" href="http://game.mttsmart.com">我也要玩</a>
 		</div>
 	</div>
 	<script src="js/jquery-2.1.3.js"></script>
