@@ -12,7 +12,7 @@
 
         function get_story($openid)
         {
-            $query=$this->db->query("SELECT rand FROM mtt_user");
+            $query=$this->db->query("SELECT rand FROM mtt_user WHERE openid='{$openid}'");
 
             $arr=array();
 
