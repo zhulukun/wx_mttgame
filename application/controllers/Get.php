@@ -59,14 +59,14 @@ class Get extends CI_Controller {
 		}
 		else
 		{
-			$arr_story=$this->get_story();
+			
 			$userinfo=array(
 					'nickname' => $_SESSION['nickname'],
-					'headimgurl' => $_SESSION['headimgurl'],
-					'content' => $arr_story['0']['content']
-				);
+					'headimgurl' => $_SESSION['headimgurl']
+									);
 		}
-		print_r($userinfo);
+		$arr_story=$this->get_story();
+		$userinfo['content']=$arr_story[0]['content'];
 		$data['userinfo']=$userinfo;
 		
 
