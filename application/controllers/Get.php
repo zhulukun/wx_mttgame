@@ -52,7 +52,7 @@ class Get extends CI_Controller {
 		
 
 			$openid=$this->uri->segment(4,0);
-			if (isset($openid)) 
+			if (!isset($_SESSION['openid']) || $openid!=$_SESSION['openid']) 
 			{
 				$user=$this->get_user_info($openid);
 				$userinfo=array(
