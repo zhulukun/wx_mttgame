@@ -79,11 +79,7 @@ class Get extends CI_Controller {
 		$userinfo['content']=$arr_story[0]['content'];
 		$data['userinfo']=$userinfo;
 			
-		//print_r($userinfo);
 
-		//$this->load->view('bike',$data);
-		$this->user_home($data);
-		
 		$this->load->view('bike',$data);
 	}
 
