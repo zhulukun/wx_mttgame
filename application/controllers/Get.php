@@ -73,15 +73,15 @@ class Get extends CI_Controller {
 					$openid=$_SESSION['openid'];
 					$access_token=$_SESSION['access_token'];
 					$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
-					//echo $userinfo_url;
+
 					$userinfo_json=file_get_contents($userinfo_url);
 					$userinfo=(array)json_decode($userinfo_json,TRUE);
-
+					print_r($userinfo);
+					die();
 					if (!$this->User_model->is_user_exist($openid)) {
 							# code...
 							$rand=rand(1,10);
-							// echo($rand);
-							// die();
+
 							$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl'],$rand);
 
 						}
