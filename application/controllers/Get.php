@@ -38,12 +38,27 @@ class Get extends CI_Controller {
 			$access_token=$json_array['access_token'];
 			$openid=$json_array['openid'];
 			$this->session->set_userdata('openid',$openid);
-			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
-			//echo $userinfo_url;
-			$userinfo_json=file_get_contents($userinfo_url);
-			$userinfo=(array)json_decode($userinfo_json,TRUE);
+			$this->session->set_userdata('access_token',$access_token);
+			header("Location:http://game.mttsmart.com/get/user_home");
+			die();
+			
 
-			if (!$this->User_model->is_user_exist($openid)) {
+		}
+
+			
+		
+	}
+
+	public function user_home()
+	{
+		$openid=$_SESSION['openid'];
+		$access_token=$_SESSION['access_token'];
+		$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
+			//echo $userinfo_url;
+		$userinfo_json=file_get_contents($userinfo_url);
+		$userinfo=(array)json_decode($userinfo_json,TRUE);
+
+		if (!$this->User_model->is_user_exist($openid)) {
 				# code...
 				$rand=rand(1,10);
 				// echo($rand);
@@ -52,13 +67,9 @@ class Get extends CI_Controller {
 
 			}
 
+		$this->session->set_userdata('nickname',$userinfo['nickname']);
+		$this->session->set_userdata('headimgurl',$userinfo['headimgurl']);
 
-			$this->session->set_userdata('nickname',$userinfo['nickname']);
-			$this->session->set_userdata('headimgurl',$userinfo['headimgurl']);
-
-		}
-
-			
 		$userinfo=array(
 					'nickname' => $_SESSION['nickname'],
 					'headimgurl' => $_SESSION['headimgurl']
@@ -72,13 +83,9 @@ class Get extends CI_Controller {
 
 		//$this->load->view('bike',$data);
 		$this->user_home($data);
-	}
-
-	public function user_home($data)
-	{
+		
 		$this->load->view('bike',$data);
 	}
-
 
 	function get_story()
 	{
