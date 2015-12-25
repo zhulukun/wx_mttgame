@@ -49,53 +49,58 @@ class Get extends CI_Controller {
 
 	public function user_home()
 	{
-		if (isset($_SESSION['openid']) && isset($_SESSION['access_token'])) {
-			# code...
-			$openid=$_SESSION['openid'];
-			$access_token=$_SESSION['access_token'];
-			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
-			//echo $userinfo_url;
-			$userinfo_json=file_get_contents($userinfo_url);
-			$userinfo=(array)json_decode($userinfo_json,TRUE);
+		
 
-			if (!$this->User_model->is_user_exist($openid)) {
-					# code...
-					$rand=rand(1,10);
-					// echo($rand);
-					// die();
-					$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl'],$rand);
-
-				}
-
-			$this->session->set_userdata('nickname',$userinfo['nickname']);
-			$this->session->set_userdata('headimgurl',$userinfo['headimgurl']);
-
-			$userinfo=array(
-						'nickname' => $_SESSION['nickname'],
-						'headimgurl' => $_SESSION['headimgurl']
-										);
-
-			$arr_story=$this->get_story();
-			$userinfo['content']=$arr_story[0]['content'];
-			$data['userinfo']=$userinfo;
-			
-		}
-		else
-		{
 			$openid=$this->uri->segment(4,0);
-			$user=$this->get_user_info($openid);
-			$userinfo=array(
-					'nickname' =>$user[0]['name'],
-					'headimgurl' =>$user[0]['avatar_url']
+			if (isset($openid)) 
+			{
+				$user=$this->get_user_info($openid);
+				$userinfo=array(
+						'nickname' =>$user[0]['name'],
+						'headimgurl' =>$user[0]['avatar_url']
 
-				);
+					);
 
-			$arr_story=$this->get_userstory($openid);
-			$userinfo['content']=$arr_story[0]['content'];
-			$data['userinfo']=$userinfo;
+				$arr_story=$this->get_userstory($openid);
+				$userinfo['content']=$arr_story[0]['content'];
+				$data['userinfo']=$userinfo;
+			}
+			else
+			{
+				if (isset($_SESSION['openid']) && isset($_SESSION['access_token'])) 
+				{
+					# code...
+					$openid=$_SESSION['openid'];
+					$access_token=$_SESSION['access_token'];
+					$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
+					//echo $userinfo_url;
+					$userinfo_json=file_get_contents($userinfo_url);
+					$userinfo=(array)json_decode($userinfo_json,TRUE);
 
-		}
+					if (!$this->User_model->is_user_exist($openid)) {
+							# code...
+							$rand=rand(1,10);
+							// echo($rand);
+							// die();
+							$this->User_model->insert_user($openid,$userinfo['nickname'],$userinfo['headimgurl'],$rand);
 
+						}
+
+					$this->session->set_userdata('nickname',$userinfo['nickname']);
+					$this->session->set_userdata('headimgurl',$userinfo['headimgurl']);
+
+					$userinfo=array(
+								'nickname' => $_SESSION['nickname'],
+								'headimgurl' => $_SESSION['headimgurl']
+												);
+
+					$arr_story=$this->get_story();
+					$userinfo['content']=$arr_story[0]['content'];
+					$data['userinfo']=$userinfo;
+					
+				}
+			}
+			
 		$this->load->view('bike',$data);
 	}
 
