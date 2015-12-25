@@ -91,7 +91,7 @@
 <body>
 	<div id="content">
 		<div id="imgbk">
-			<img src="<?php echo base_url();?>img/bk.png">
+			<img src="<?php echo base_url();?>img/bk.png" />
 		</div>
 		<div id="title-container">
 			<h1 id="username"><?php echo $userinfo['nickname'];?></h1>
