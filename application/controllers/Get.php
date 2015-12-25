@@ -38,10 +38,6 @@ class Get extends CI_Controller {
 			$access_token=$json_array['access_token'];
 			$openid=$json_array['openid'];
 			$this->session->set_userdata('openid',$openid);
-			$this->session->set_userdata('access_token',$access_token);
-
-			header("Loaction:http://game.mttsmart.com/get/user_home");
-			die();
 			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 			//echo $userinfo_url;
 			$userinfo_json=file_get_contents($userinfo_url);
@@ -73,12 +69,12 @@ class Get extends CI_Controller {
 		$data['userinfo']=$userinfo;
 			
 		//print_r($userinfo);
-		//$this->load->view('bike',$data);
 
+		//$this->load->view('bike',$data);
 		$this->user_home($data);
 	}
 
-	public function user_home()
+	public function user_home($data)
 	{
 		$this->load->view('bike',$data);
 	}
