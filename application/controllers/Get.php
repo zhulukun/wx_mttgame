@@ -76,8 +76,6 @@ class Get extends CI_Controller {
 
 					$userinfo_json=file_get_contents($userinfo_url);
 					$userinfo=(array)json_decode($userinfo_json,TRUE);
-					print_r($userinfo);
-					die();
 					if (!$this->User_model->is_user_exist($openid)) {
 							# code...
 							$rand=rand(1,10);
