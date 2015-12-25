@@ -83,8 +83,16 @@ class Get extends CI_Controller {
 		else
 		{
 			$openid=$this->uri->segment(4,0);
-			echo $openid;
-			die();
+			$user=$this->get_user_info($openid);
+			$userinfo=array(
+					'nickname' =>$user[0]['name'],
+					'headimgurl' =>$user[0]['avatar_url']
+
+				);
+
+			$arr_story=$this->get_userstory($openid);
+			$userinfo['content']=$arr_story[0]['content'];
+			$data['userinfo']=$userinfo;
 
 		}
 
@@ -102,6 +110,12 @@ class Get extends CI_Controller {
 	{
 		$story=$this->Story_model->get_story($openid);
 		return $story;
+	}
+
+	function get_user_info($openid)
+	{
+		$userinfo=$this->User_model->get_user_info($openid);
+		return $userinfo;
 	}
 }
 ?>

@@ -39,6 +39,20 @@
 	        return FALSE;
         }
 
+        //查看用户信息
+        function get_user_info($openid)
+        {
+            $query=$this->db->query("SELECT name,avatar_url FROM mtt_user WHERE openid='{$openid}'");
+            $arr = array();
+
+            foreach($query->result_array() as $row)
+            {
+                array_push($arr,$row);
+            }
+            return $arr;
+
+        }
+
 
 }
 ?>
