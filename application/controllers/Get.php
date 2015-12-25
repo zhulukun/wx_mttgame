@@ -74,11 +74,11 @@ class Get extends CI_Controller {
 			
 		//print_r($userinfo);
 		//$this->load->view('bike',$data);
-		
+
 		$this->user_home($data);
 	}
 
-	public function user_home();
+	public function user_home()
 	{
 		$this->load->view('bike',$data);
 	}
