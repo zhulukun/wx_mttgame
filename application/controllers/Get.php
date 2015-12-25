@@ -40,7 +40,7 @@ class Get extends CI_Controller {
 			$this->session->set_userdata('openid',$openid);
 			$this->session->set_userdata('access_token',$access_token);
 
-			header("Loaction:http://game.mttsmart.com/user_home");
+			header("Loaction:http://game.mttsmart.com/get/user_home");
 			die();
 			$userinfo_url="https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
 			//echo $userinfo_url;
@@ -73,8 +73,8 @@ class Get extends CI_Controller {
 		$data['userinfo']=$userinfo;
 			
 		//print_r($userinfo);
-
 		//$this->load->view('bike',$data);
+		
 		$this->user_home($data);
 	}
 
