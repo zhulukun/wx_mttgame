@@ -3,7 +3,7 @@ require_once "jssdk.php";
  error_reporting(0);  
 $jssdk = new JSSDK("wx86ae866c6733ee72", "e0c1e0c57061910c57eea05bd672a3c1");
 $signPackage = $jssdk->GetSignPackage();
-print_r($signPackage);
+// print_r($signPackage);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,6 @@ print_r($signPackage);
   <script src="js/index.js"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"> </script>
 <script>
-alert('hello');
     wx.config({
         debug: true,
         appId: '<?php echo $signPackage["appId"];?>',
