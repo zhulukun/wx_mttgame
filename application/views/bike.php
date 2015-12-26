@@ -18,7 +18,7 @@ print_r($signPackage);
 <script>
 alert('hello');
     wx.config({
-        debug: false,
+        debug: true,
         appId: '<?php echo $signPackage["appId"];?>',
         timestamp: <?php echo $signPackage["timestamp"];?>,
         nonceStr: '<?php echo $signPackage["nonceStr"];?>',
@@ -44,9 +44,9 @@ alert('hello');
         });
      
     wx.onMenuShareAppMessage({
-        //  title: '<?php echo $news['Title'];?>',
+         title: '骑行故事',
           desc: '<?php echo $userinfo['content'];?>',
-      //    link: '<?php echo $news['Url'];?>',
+         link: '<?php echo $signPackage['url'];?>',
           imgUrl: '<?php echo $userinfo['headimgurl'];?>',
           trigger: function (res) {
             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
